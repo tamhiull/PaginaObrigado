@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥Obrigada pela Compra!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Ícone de fogo - Tamanho padrão para telas MÉDIAS/GRANDES */
+        .book-icon {
+            font-size: 120px; /* Tamanho ideal para desktop */
+            transition: all 0.3s ease; /* Suaviza mudanças de tamanho */        
+        }
+
+
+        @media (max-width: 768px) {
+         .book-icon {
+            font-size: 80px !important; /* Tamanho menor em mobile */
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .book-icon {
+                font-size: 140px !important; /* Tamanho maior em telas gigantes */
+            }
+        }
+        .message-title i.fa-arrow-right {
+            color: #000000; /* Cor laranja */
+            margin-right: 12px; /* Espaçamento */
+            animation: bounceArrow 0.8s infinite alternate; /* Animação */
+        }
+
+        @keyframes bounceArrow {
+            from { transform: translateX(0); }
+            to { transform: translateX(5px); }
+            }
+        :root {
+            --primary: #5e35b1;
+            --secondary: #3949ab;
+            --accent: #7c4dff;
+            --light: #f5f3ff;
+            --dark: #1a237e;
+            --success: #4caf50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color:#ffffff;
+        }
+        
+        .purchase-confirmation {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem;
+            perspective: 2000px;
+        }
+        
+        .confirmation-card {
+            background:rgba(15, 15, 15, 0.9);
+            border: 1px solid #333;
+            padding: 70px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 10;
+            background-image: radial-gradient(circle at 10% 20%, rgba(245, 243, 255, 0.8) 0%, rgba(255, 255, 255, 1) 90%);
+        }
+        
+        .confirmation-card:hover {
+            transform: translateY(-15px) rotateX(3deg);
+            box-shadow: 0 50px 80px -30px rgba(30, 41, 59, 0.3);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            opacity: 0;
+            animation: confetti-fall 5s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        .book-icon {
+            color: #FF5722; /* Laranja vibrante */
+            text-shadow: 
+                 0 0 10px #FF9800, 
+                 0 0 20px #FF5722, 
+                 0 0 30px #FFC107; /* Efeito de brilho */
+             animation: flame 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes flame {
+            0%, 100% { 
+                transform: scale(1) rotate(-5deg); 
+                opacity: 0.9;
+            }
+             50% { 
+                 transform: scale(1.1) rotate(5deg); 
+                 opacity: 1;
+                 color: #FFC107; /* Amarelo no pico da animação */
+                }
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: bold !important;
+            margin-bottom: 40px;
+            color:#000000 !important; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .message-box {
+            background:rgba(255, 69, 0, 0.1);
+            border-left:  4px solid #ff4500;
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 40px 0;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(124, 77, 255, 0.05) 0%, rgba(124, 77, 255, 0) 100%);
+            z-index: -1;
+        }
+        
+        .message-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .message-title i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .download-btn {
+            background: linear-gradient(45deg, #ff6b00, #ff0000);
+            color:#000 !important;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 25px rgba(94, 53, 177, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .download-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+            border-radius: 50px;
+        }
+        
+        .download-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(94, 53, 177, 0.4);
+        }
+        
+        .download-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            color: #9ca3af;
+        }
+        
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .divider::before {
+            margin-right: 20px;
+        }
+        
+        .divider::after {
+            margin-left: 20px;
+        }
+        
+        .bonus-offer {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #bbf7d0;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bonus-offer::after {
+            content: 'BÔNUS';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .bonus-title {
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .social-share {
+            margin-top: 50px;
+        }
+        
+        .social-title {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon.facebook:hover {
+            background: #1877f2;
+            color: white;
+        }
+        
+        .social-icon.twitter:hover {
+            background: #1da1f2;
+            color: white;
+        }
+        
+        .social-icon.whatsapp:hover {
+            background: #25d366;
+            color: white;
+        }
+        
+        .social-icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+        }
+        
+        .floating-books {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-books.book1 {
+            top: 50px;
+            left: 50px;
+            font-size: 80px;
+            animation-delay: 0s;
+        }
+        
+        .floating-books.book2 {
+            bottom: 30px;
+            right: 60px;
+            font-size: 100px;
+            animation-delay: 1s;
+        }
+        
+        @media (max-width: 768px) {
+            .confirmation-card {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .book-icon {
+                font-size: 80px;
+            }
+            
+            .checkmark {
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .download-btn {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .message-box {
+                padding: 20px 15px;
+            }
+            
+            .social-icons {
+                flex-wrap: wrap;
+            }
+        }
+        body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0));
+        background-size: 100px 100px;
+        z-index: -1;
+        animation: stars 50s linear infinite;
+         }
+
+        @keyframes stars {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100px); }
+        }
+
+    /* Brilho no cartão */
+        .confirmation-card:hover {
+             box-shadow: 0 0 30px rgba(255, 69, 0, 0.3);
+            }
+    </style>
+</head>
+<body>
+    <div class="purchase-confirmation">
+        <div class="confirmation-card">
+            <div class="checkmark">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <i class="fas fa-fire book-icon"></i>  <!-- Ícone de fogo do Font Awesome -->
+            <h1>Compra Confirmada!</h1>
+            <p class="subtitle">Obrigada por adquirir os Vazadinhos das Famosas🔥 Seu prazer significa muito para nós!❤</p>
+            
+         <!-- 
+            <div class="message-box">
+                <div class="message-title">
+                    <i class="fas fa-arrow-right"></i> TE
+                </div>
+                <p>O download do seu livro já está disponível. Você também receberá uma cópia por email com todos os detalhes da sua compra.</p>
+            </div>
+            -->
+            
+            <button class="download-btn" onclick="window.location.href='#'">
+                Voltar à Pagina. <i class=></i>
+            </button>
+            
+            <div class="divider">ou</div>
+            
+            <!-- <div class="bonus-offer">
+                <div class="bonus-title">Presente Especial Para Você!</div>
+                <p>Como agradecimento, estamos te enviando um capítulo bônus exclusivo que não está incluso na versão padrão do livro. Este material estará disponível na sua área de membros em até 24 horas.</p>
+            </div>
+            -->
+            
+            <div class="social-share">
+                <div class="social-title">Compartilhe sua aquisição:</div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <i class="fas fa-book floating-books book1"></i>
+        <i class="fas fa-book floating-books book2"></i>
+    </div>
+
+    <script>
+        // Criar confetes
+        function createConfetti() {
+            const colors = ['#5e35b1', '#7c4dff', '#3949ab', '#ffab91', '#a5d6a7'];
+            const container = document.querySelector('.purchase-confirmation');
+            
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.width = Math.random() * 10 + 8 + 'px';
+                confetti.style.height = confetti.style.width;
+                container.appendChild(confetti);
+            }
+        }
+        
+        // Efeito de digitação
+        function typeWriter(element, text, i = 0) {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(() => typeWriter(element, text, i), 20);
+            }
+        }
+        
+        // Iniciar quando a página carregar
+        window.addEventListener('load', () => {
+            createConfetti();
+            
+            // Aplicar efeito de digitação no subtítulo
+            const subtitle = document.querySelector('.subtitle');
+            const text = subtitle.innerText;
+            subtitle.innerText = '';
+            typeWriter(subtitle, text);
+        });
+
+     
+    </script>
+
+</body>
+</html>
